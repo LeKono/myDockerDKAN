@@ -1,0 +1,20 @@
+# Base image
+FROM {{ INSERT BASE IMAGE }}
+
+# Maintainer
+MAINTAINER Andrej Konotopez <andrej.konotopez@scai.fraunhofer.de>
+
+# Update to latest version (OPTIONAL)
+RUN apt-get update 
+RUN apt-get upgrade -y
+
+# Install needed packages (OPTIONAL)
+RUN apt-get install -y \
+	{{ INSERT REQUIRED PACKAGES }}
+
+
+# Expose ports (OPTIONAL)
+EXPOSE 80
+
+# Run apache server on container start
+ENTRYPOINT /bin/bash
